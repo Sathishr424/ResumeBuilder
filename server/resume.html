@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .template1{
+  background-color: white;
+  color: black;
+  padding: 40px 60px;
+}
+
+#profile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#profile span{
+  margin: 0px 4px;
+}
+
+#profile .user_name{
+  font-size: 25px;
+  font-family: monospace;
+  font-weight: bolder;
+}
+
+.row_close{
+  display: flex;
+  flex-direction: row;
+}
+
+.template1 li{
+  list-style-position: inside;
+  margin: 3px 0px;
+}
+
+#education{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+#education .Heading{
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bolder;
+  border-bottom: solid 1px black;
+  padding: 5px 0px;
+}
+
+.row_far{
+  width: calc(100% - 20px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 0;
+  margin-left: 20px;
+}
+
+.row_far2{
+  width: calc(100% - 20px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.gap{
+  margin: 5px 0;
+  margin-left: 20px;
+}
+
+#education .collegeName{
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: bolder;
+}
+
+#education span{
+  margin: 0px 5px;
+}
+
+.column1{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.column2{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#work{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+#work .Heading{
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bolder;
+  border-bottom: solid 1px black;
+  padding: 5px 0px;
+}
+
+
+#work .companyName{
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: bolder;
+}
+
+#work span{
+  margin: 0px 5px;
+}
+
+.column3{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+
+.column4{
+  width: calc(100% - 20px);
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  margin-left: 20px;
+}
+
+#work .job{
+  margin: 5px 0px;
+  margin-left: 50px;
+}
+
+#skills{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+#skills .Heading{
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bolder;
+  border-bottom: solid 1px black;
+  padding: 5px 0px;
+}
+
+#skills .skillDetail{
+  margin: 0px 5px;
+}
+
+#projects{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+#projects .Heading{
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bolder;
+  border-bottom: solid 1px black;
+  padding: 5px 0px;
+}
+
+#projects .projectName{
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+#projects .toolsUsed{
+  margin: 0px 5px;
+}
+
+#awards{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+#awards .Heading{
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bolder;
+  border-bottom: solid 1px black;
+  padding: 5px 0px;
+}
+
+#awards .awardName{
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+.row_far3{
+  width: calc(100% - 20px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.row_far3 .summary{
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.row_far3 .awardDate{
+  flex-basis: 0;
+  flex-grow: .1;
+  text-align: right;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="template1"><div id="profile"><div class="user_name">Sathish Kumar R</div><div class="row_close"><div class="Address">No 19/5, kanagar street, Tiruvottiyur</div><span>.</span><div class="Email">rsathishikumar3@gmail.com</div><span>.</span><div class="Mobile">+91 8248144526</div></div><div class="row_close"><div class="Portfolio">http://localhost:3000/</div><span>.</span><div class="LinkedIn">http://localhost:3000/</div></div></div><div id="education"><div class="Heading">Education</div><div class="row_far"><div class="column1"><div class="collegeName">CPT</div><div class="row_close"><div class="Degree">DCE</div><span></span><div class="Major">Civil</div><span></span><div class="GPA">GPA: 7.6</div></div></div><div class="column2"><div class="collegeLocation">Chennai, TamilNadu, India</div><div class="row_close"><div class="startDate">June 2014</div><span>-</span><div class="endDate">June 2017</div></div></div></div><div class="row_far"><div class="column1"><div class="collegeName">P.A.K Palanisamy Higher Seconday School</div><div class="row_close"><div class="Degree">SSLC</div><span></span><div class="Major">10TH</div><span></span><div class="GPA">GPA: 9.6</div></div></div><div class="column2"><div class="collegeLocation">Chennai, TamilNadu, India</div><div class="row_close"><div class="startDate">June 2013</div><span>-</span><div class="endDate">June 2014</div></div></div></div></div><div id="work"><div class="Heading">Work Experience</div><div class="column3"><div class="row_far"><div class="column1"><div class="companyName">Cistron Infotek Private Limited.</div><div class="jobTitle">Steel Detailer</div></div><div class="column2"><div class="jobLocation">Chennai, Tamil Nadu, India</div><div class="row_close"><div class="startDate">Aug 2017</div><span>-</span><div class="endDate">Sep 2019</div></div></div></div><ul class="job"><li class="jr">Detailing Erection and Shop drawings based on the AISC standards</li><li class="jr">While detailing ensure company standards are followed.</li></ul></div><div class="column3"><div class="row_far"><div class="column1"><div class="companyName">MoldTek Technologies Private Limited</div><div class="jobTitle">Steel Detailer</div></div><div class="column2"><div class="jobLocation">Chennai, Tamil Nadu, India</div><div class="row_close"><div class="startDate">Sep 2019</div><span>-</span><div class="endDate">Nov 2021</div></div></div></div><ul class="job"><li class="jr">Detailing Erection and Shop drawings based on the AISC standards</li><li class="jr">Managing WWhile detailing ensure company standards are followed.orks</li></ul></div></div><div id="skills"><div class="Heading">Skills</div><div class="row_far"><div class="skillName">Programming Languages:</div><div class="row_close"><div class="skillDetail">Python,</div><div class="skillDetail">Java,</div><div class="skillDetail">C++,</div><div class="skillDetail">JavaScript,</div><div class="skillDetail">PHP,</div><div class="skillDetail">HTML,</div><div class="skillDetail">CSS,</div><div class="skillDetail">ReactJS,</div><div class="skillDetail">NodeJS,</div><div class="skillDetail">MongoDB</div></div></div><div class="row_far"><div class="skillName">Softwares:</div><div class="row_close"><div class="skillDetail">Tekla Structures 19.1,</div><div class="skillDetail">Tekla Structures 21.1,</div><div class="skillDetail">Tekla Structures 2016</div></div></div></div><div id="projects"><div class="Heading">Projects</div><div class="column4"><div class="row_close"><div class="projectName">YouTube Downloader</div><div class="row_close"><div class="toolsUsed">Python</div><div class="toolsUsed">Tkinter(Module)</div><div class="toolsUsed">Pygame(Module),</div></div></div><div class="projectLink">https://github.com/Sathishr424/Youtube-downloader</div><div class="projectDescription">For downloading YouTube videos, playlists and total channel content in just one click in three different formats(360p,720p,Audio_only)..</div></div><div class="column4"><div class="row_close"><div class="projectName">Random Quote Generator/Machine</div><div class="row_close"><div class="toolsUsed">HTML</div><div class="toolsUsed">CSS</div><div class="toolsUsed">JavaScript</div><div class="toolsUsed">Bootstrap</div><div class="toolsUsed">Jquery,</div></div></div><div class="projectLink">https://github.com/Sathishr424/Random-Quote-Generator</div><div class="projectDescription">For get a random quote. Project build for showcasing my front end skills.</div></div><div class="column4"><div class="row_close"><div class="projectName">Pomodoro timer</div><div class="row_close"><div class="toolsUsed">HTML</div><div class="toolsUsed">CSS</div><div class="toolsUsed">JavaScript</div><div class="toolsUsed">Bootstrap</div><div class="toolsUsed">Jquery,</div></div></div><div class="projectLink">https://github.com/Sathishr424/25-5-Clock</div><div class="projectDescription">The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro. Build this project to showcase my font end skills.</div></div><div class="column4"><div class="row_close"><div class="projectName">Markdown Previewer</div><div class="row_close"><div class="toolsUsed">HTML</div><div class="toolsUsed">CSS</div><div class="toolsUsed">JavaScript</div><div class="toolsUsed">Bootstrap</div><div class="toolsUsed">Jquery,</div></div></div><div class="projectLink">https://github.com/kratos462/Markdown-Previewer</div><div class="projectDescription">GitHub flavored markdown previewer</div></div><div class="column4"><div class="row_close"><div class="projectName">Personal Library</div><div class="row_close"><div class="toolsUsed">HTML, CSS</div><div class="toolsUsed">NodeJS</div><div class="toolsUsed">MongoDB</div><div class="toolsUsed">Express,</div></div></div><div class="projectLink">https://github.com/Sathishr424/boilerplate-project-library</div><div class="projectDescription">A web app where users can add/remove book titles and also add and view comments to each of the books in the library.</div></div><div class="column4"><div class="row_close"><div class="projectName">Stock Checker</div><div class="row_close"><div class="toolsUsed">NodeJS</div><div class="toolsUsed">HTML,CSS</div><div class="toolsUsed">MongoDB</div><div class="toolsUsed">Express,</div></div></div><div class="projectLink">https://github.com/Sathishr424/boilerplate-project-stockchecker</div><div class="projectDescription">A web app where users can check and compare two stocks price and also like the stocks. And also get the stock price and likes in the JSON format.</div></div></div><div id="awards"><div class="Heading">Certificates</div><div class="column4"><div class="row_far2"><div class="awardName">Front End Development Libraries</div><div class="awarder">FreeCodeCamp</div></div><div class="row_far3"><div class="summary">As part of this certification, I built Random Quote Machine, Markdown Previewer, Drum Machine, JavaScript Calculator and 25+5 Clock. </div><div class="awardDate">Nov 2021</div></div></div><div class="column4"><div class="row_far2"><div class="awardName">Legacy Information Security and Quality Assurance</div><div class="awarder">FreeCodeCamp</div></div><div class="row_far3"><div class="summary">As part of this certification, I built the following projects and got all automated test suites to pass: Metric-Imperial Converter, Issue Tracker, Personal Library, Stock Price Checker and Anonymous Message Board.</div><div class="awardDate">Dec 2021</div></div></div><div class="column4"><div class="row_far2"><div class="awardName">Responsive Web Design</div><div class="awarder">FreeCodeCamp</div></div><div class="row_far3"><div class="summary">As part of this certification, I built the following projects and got all automated test suites to pass: Build a Survey Form, Build a Tribute Page, Build a Technical Documentation Page, Build a Product Landing Page and Build a Personal Portfolio WebPage.</div><div class="awardDate">Nov 2021</div></div></div><div class="column4"><div class="row_far2"><div class="awardName">Data Visualization</div><div class="awarder">FreeCodeCamp</div></div><div class="row_far3"><div class="summary">As part of this certification, I built the following projects and got all automated test suites to pass: Visualize Data with a Bar Chart, Visualize Data with a Scatterplot Graph, Visualize Data with a Heat Map, Visualize Data with a Choropleth Map and Visualize Data with a Treemap Diagram.</div><div class="awardDate">Nov 2021</div></div></div><div class="column4"><div class="row_far2"><div class="awardName">Back End Development and APIs</div><div class="awarder">FreeCodeCamp</div></div><div class="row_far3"><div class="summary">As part of this certification, Sathish Kumar R built the following projects and got all automated test suites to pass: Timestamp Microservice, Request Header Parser Microservice, URL Shortener Microservice, Exercise Tracker and File Metadata Microservice.</div><div class="awardDate">Dec 2021</div></div></div><div class="column4"><div class="row_far2"><div class="awardName">Legacy Full Stack</div><div class="awarder">FreeCodeCamp</div></div><div class="row_far3"><div class="summary">As part of this Legacy Full Stack certification, I was completed the following certifications: Responsive Web Design, JavaScript Algorithms and Data Structures, Front End Development Libraries, Data Visualization, Back End Development and APIs, Legacy Information Security and Quality Assurance.</div><div class="awardDate">Dec 2021</div></div></div></div></div>
+  </body>
+</html>
