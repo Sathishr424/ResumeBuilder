@@ -217,7 +217,7 @@ const Template = (props) => {
 
 	return (
 		<div className='template1'>
-			<iframe src={pdf} className='pdf' frameBorder='0'></iframe>
+			<iframe style={{"backgroundColor":"rgb(35.859, 27.891, 27.891)"}} src={pdf} className='pdf' frameBorder='0'></iframe>
 		</div>
 	);
 
