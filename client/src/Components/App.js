@@ -96,24 +96,6 @@ function App() {
         src: T2,
         title: "Template 2",
         active: false
-      },
-      {
-        id: 3,
-        src: T3,
-        title: "Template 3",
-        active: false
-      },
-      {
-        id: 4,
-        src: T4,
-        title: "Template 4",
-        active: false
-      },
-      {
-        id: 5,
-        src: T5,
-        title: "Template 5",
-        active: false
       }
     ]);
 
