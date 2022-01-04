@@ -1,14 +1,15 @@
 .template1{
-	background-color: white;
-	color: black;
+  	background-color: whitesmoke;
+	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
 	font-family: times;
-	width: 100%;
+	width: calc(100% - 20px);
 	height: 100%;
+	margin: 10px;
 }
 
 #profile{

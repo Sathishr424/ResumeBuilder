@@ -215,12 +215,38 @@ const Template = (props) => {
 
 	// console.log("PDF:",pdf);
 
+	let preview;
+
+	if (pdf){
+		preview = (
+			// <embed style={{"backgroundColor":"rgb(35.859, 27.891, 27.891)"}} src={pdf} className='pdf' frameBorder='0'/>
+			<object data={pdf} type="application/pdf" width="100%" height="100%">
+			  <p>Your web browser doesn't have a PDF plugin.
+			  Instead you can</p>
+			  <a className="myBtnActive2" href={pdf}>Download PDF</a>
+			</object>
+		);
+	}else if(props.loading){
+		preview = (
+			<div className='buildPdf'>
+				<div className="spinner-loader"></div>
+			</div>
+		)
+	}
+	else{
+		preview = (
+			<div className='buildPdf'>
+				Click Build to generate a PDF.
+			</div>
+		)
+	}
+
+
 	return (
 		<div className='template1'>
-			<iframe style={{"backgroundColor":"rgb(35.859, 27.891, 27.891)"}} src={pdf} className='pdf' frameBorder='0'></iframe>
+			{preview}
 		</div>
 	);
-
 }
 
 

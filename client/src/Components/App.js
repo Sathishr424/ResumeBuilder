@@ -79,7 +79,7 @@ function App() {
 
   useEffect( ()=>{
       var data = localStorage.getItem('Resume');
-      console.log(JSON.parse(data));
+      // console.log(JSON.parse(data));
       if (data) setResume(JSON.parse(data));
     }, []
   )
@@ -145,7 +145,7 @@ function App() {
 
     if (name == 'Templates') setSection((<Template templates={templates} handler={templateHandler} />));
     else{
-      setSection((<CustomSection name={name} content={resume[name]} handler={contentHandler}/>))
+      setSection((<CustomSection mobile={mobile} previewScreen={previewScreen} name={name} content={resume[name]} handler={contentHandler}/>))
     }
   }
 
@@ -153,7 +153,7 @@ function App() {
     if (activeSection < sections.length-1){
       setActiveSection(activeSection+1);
       sectionHandler(sections[activeSection+1].name);
-      console.log("NEXT:", sections[activeSection+1].name);
+      // console.log("NEXT:", sections[activeSection+1].name);
     }
   }
 
@@ -161,7 +161,8 @@ function App() {
     if (activeSection > 0){
       setActiveSection(activeSection-1);
       sectionHandler(sections[activeSection-1].name);
-      console.log("PREV:", sections[activeSection-1].name);
+      // console.log("PREV:", sections[activeSection-1].name);
+      if (mobile) {setPreviewScreen(false);  document.getElementById("CustomSection").style.display = "block"}
     }
   }
 
@@ -169,9 +170,28 @@ function App() {
 
   let render, cssStyle;
 
+  let [pdfLoading, setPdfLoading] = useState(false);
+
+  let [mobile, setMobile] = useState( window.innerWidth <= 880 ? true : false );
+
+  let [previewScreen, setPreviewScreen] = useState(false);
+
+  const handleResize = () => {
+    // console.log("VIEW CHANGED");
+    setMobile(window.innerWidth <= 880 ? true : false);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize, false);
+  }, []);
+
   async function downloadPdf(open=false) {
     try {
+      setPdfLoading(true);
+      setPdf("");
+      if (mobile) {setPreviewScreen(true); document.getElementById("CustomSection").style.display = "none"};
       const response = await axios.post('/resume', {resume: "<div class='template1'>"+render+"</div>", style: cssStyle},{responseType: 'blob'});
+      setPdfLoading(false);
       console.log(response);
       // const content = response.headers['content-type'];
         // download(response.data, "resume.pdf", content);
@@ -194,9 +214,22 @@ function App() {
     }
   }
 
-  const getDataFromJson = (data) => {
-    setResume(JSON.parse(data));
-    sectionHandler(sections[activeSection].name);
+  const getDataFromJson = () => {
+    console.log("Reading..");
+    var file = document.getElementById("importData").files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.readAsText(file, "UTF-8");
+        reader.onload = function (evt) {
+          console.log(evt.target.result);
+          setResume(JSON.parse(evt.target.result));
+          sectionHandler(sections[activeSection].name);
+            // document.getElementById("fileContents").innerHTML = evt.target.result;
+        }
+        reader.onerror = function (evt) {
+            // document.getElementById("fileContents").innerHTML = "error reading file";
+        }
+    }
   }
 
   const downloadData = () => {
@@ -234,25 +267,42 @@ function App() {
   else prev = (<div className='myBtn' style={{"pointerEvents":"none", "opacity":"0.5"}}>Prev</div>);
   if (activeSection >= 0 && activeSection < sections.length-1) next = (<div className='myBtn' onClick={nextSection}>Next</div>);
   else next = (<div className='myBtn' style={{"pointerEvents":"none", "opacity":"0.5"}}>Next</div>);
-  if (activeSection == sections.length-1) make = (<div onClick={downloadPdf} className='myBtn'>Build PDF</div>);
-  else make = (<div className='myBtn' style={{"pointerEvents":"none", "opacity":"0.5"}}>Build PDF</div>);
+  if (activeSection == sections.length-1) make = (<div onClick={downloadPdf} className='myBtn'>Build</div>);
+  else make = (<div className='myBtn' style={{"pointerEvents":"none", "opacity":"0.5"}}>Build</div>);
 
   useEffect(()=>{
     setPdf("");
   }, [style])
 
+  let more;
+  if (mobile){
+    more = (
+      <div className='row_full'>
+        <div onClick={build} className='myBtn'>Save</div>
+        {prev}
+        {make}
+        {next}
+        <label style={{'display':'block'}}  htmlFor="importData" className='myBtn'>Load</label>
+      </div>
+    )
+  }else{
+    <div>
+      {prev}
+      {make}
+      {next}
+    </div>
+  }
+
   return (
     <div className="main">
       <Header />
       <div className='container'>
-        <Sections downloadData={downloadData} loadData={getDataFromJson} build={build} buildPdf={downloadPdf} sections={sections} btnHandler={sectionHandler} />
+        <Sections mobile={mobile} previewScreen={previewScreen} downloadData={downloadData} loadData={getDataFromJson} build={build} buildPdf={downloadPdf} sections={sections} btnHandler={sectionHandler} />
         {section}
-        <Preview pdf={pdf} resume={resume} template={style}/>
+        <Preview mobile={mobile} previewScreen={previewScreen} loading={pdfLoading} pdf={pdf} resume={resume} template={style}/>
       </div>
       <div className='footer'>
-        {prev}
-        {make}
-        {next}
+        {more}
       </div>
     </div>
   );

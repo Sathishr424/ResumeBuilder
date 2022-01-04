@@ -13,6 +13,21 @@ code {
     monospace;
 }
 
+.spinner-loader {
+  border: 7px solid whitesmoke; /* Light grey */
+  border-top: 7px solid skyblue; /* Blue */
+  border-bottom: 7px solid skyblue; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 *{
   padding: 0px;
   margin: 0px;
@@ -37,6 +52,10 @@ code {
   height: 100%;
 }
 
+.buildPdf{
+  color: black;
+}
+
 .pdfOptions{
   width: 100%;
   background-color: rgb(35.859, 27.891, 27.891);
@@ -44,7 +63,7 @@ code {
   flex-direction: row;
 }
 
-#sections{
+.sections{
   border-right: solid 1px rgb(60, 40, 27.891);
   flex-basis: 0;
   flex-grow: 1;
@@ -85,6 +104,23 @@ code {
   overflow: auto;
 }
 
+object p{
+  text-align: center;
+  color: black;
+  margin: 0px 20%;
+  margin-top: 50%;
+  width: 70%;
+}
+
+object a{
+  text-align: center;
+  color: black;
+  margin: 0px 40%;
+  margin-top: 60%;
+  display: block;
+}
+
+
 .customSeciton{
   font-size: 15px;
   color: white;
@@ -111,6 +147,7 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   height: 50px;
   border-top: solid 1px rgb(60, 40, 27.891);
 }
@@ -158,6 +195,7 @@ code {
   color: rgb(149, 223, 162);
   background-color: transparent;
   border: solid 2px rgb(149, 223, 162);
+  text-decoration: none;
 }
 
 .myBtn:hover{
@@ -177,6 +215,26 @@ code {
   background-color: rgb(149, 223, 162);
   box-shadow: 1px 1px 5px 2px #224b4b;
   color: rgb(63, 66, 68);
+}
+
+.myBtnActive2{
+  padding: 5px;
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: solid 2px rgb(149, 223, 162);
+  background-color: rgb(149, 223, 162);
+  box-shadow: 1px 1px 5px 2px #224b4b;
+  color: rgb(63, 66, 68);
+  text-decoration: none;
+}
+
+.myBtnActive2:hover{
+  background-color: transparent;
+  box-shadow: 1px 1px 5px 2px #224b4b;
+  color: rgb(149, 223, 162);
 }
 
 .templateCard{
@@ -213,6 +271,14 @@ code {
   padding: 4px;
 }
 
+@media (max-width: 880px){
+  .templateCard img, .templateCardActive img{
+    width: 80vw;
+    height: 70vh;
+    padding: 4px;
+  }
+}
+
 .templateCard:hover{
   cursor: pointer;
   border: solid 2px rgb(149, 223, 162);
@@ -221,9 +287,11 @@ code {
   color: rgb(63, 66, 68);
 }
 
-.templateCard p{
-
+.templateCard p, .templateCardActive p{
+  margin: 5px 0;
+  text-transform: uppercase;
 }
+
 
 .rowSub{
   display: flex;

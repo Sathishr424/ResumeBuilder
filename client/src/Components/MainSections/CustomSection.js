@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import DummyResume from "../DummyResume";
 
 const LabelInput = (props) => {
@@ -65,6 +65,8 @@ const Section = (props) => {
 const CustomSection = (props) => {
 
 	let helper = [];
+
+	let [update, setUpdate] = useState(props.previewScreen);
 
 	// console.log(props.content);
 
@@ -138,8 +140,20 @@ const CustomSection = (props) => {
 		)
 	}
 
+	let visible;
+
+	useEffect(()=>{
+		if (props.mobile && props.previewScreen){
+			visible = {"display":"none"};
+		}else{
+			visible = {"display":"block"};
+		}
+		// console.log(visible);
+		setUpdate(props.previewScreen);
+	},[props.previewScreen])
+
 	return (
-		<div className='customSeciton'>
+		<div id='CustomSection' className='customSeciton' style={visible}>
 			<h3>{"Your " + props.name}</h3>
 			<div className='labelInput'>
 				<label>Section Heading</label>
