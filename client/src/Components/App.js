@@ -286,11 +286,11 @@ function App() {
       </div>
     )
   }else{
-    <div>
+    more = (<div className='row_full'>
       {prev}
       {make}
       {next}
-    </div>
+    </div>)
   }
 
   return (
