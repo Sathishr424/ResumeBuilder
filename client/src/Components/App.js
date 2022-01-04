@@ -193,6 +193,25 @@ function App() {
       console.error(error);
     }
   }
+
+  const getDataFromJson = (data) => {
+    setResume(JSON.parse(data));
+    sectionHandler(sections[activeSection].name);
+  }
+
+  const downloadData = () => {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(resume)));
+    element.setAttribute('download', "resume.json");
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  }
+
   // console.log(style);
 
   switch (style){
@@ -226,7 +245,7 @@ function App() {
     <div className="main">
       <Header />
       <div className='container'>
-        <Sections build={build} buildPdf={downloadPdf} sections={sections} btnHandler={sectionHandler} />
+        <Sections downloadData={downloadData} loadData={getDataFromJson} build={build} buildPdf={downloadPdf} sections={sections} btnHandler={sectionHandler} />
         {section}
         <Preview pdf={pdf} resume={resume} template={style}/>
       </div>
