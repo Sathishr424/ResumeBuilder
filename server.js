@@ -15,7 +15,7 @@ app.use('/', express.static(process.cwd() + '/'));
 //Index page (static HTML)
 app.route('/')
   .get(function (req, res) {
-    res.send("Server running on port 4000");
+    res.sendFile(__dirname + "/client/build/index.html");
 });
 
 
