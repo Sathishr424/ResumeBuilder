@@ -205,7 +205,7 @@ const Template = (props) => {
 	// console.log(resume);
 
 	const [html, prev] = Render(resume);
-	console.log(html);
+	// console.log(html);
 	let [pdf, setPdf] = useState(props.pdf);
 
 	useEffect(()=>{
@@ -216,7 +216,7 @@ const Template = (props) => {
 	async function downloadPdf(data) {
 	  try {
 	    const response = await axios.post('/resume', {resume: "<div class='template2'>"+data+"</div>", style: Style},{responseType: 'blob'});
-	    console.log(response);
+	    // console.log(response);
 	    // const content = response.headers['content-type'];
        	// download(response.data, "resume.pdf", content);
        	// window.open(URL.createObjectURL(response.data));
@@ -237,7 +237,7 @@ const Template = (props) => {
 	  }
 	}
 
-	console.log("PDF:",pdf);
+	// console.log("PDF:",pdf);
 
 	return (
 		<div className='template1'>

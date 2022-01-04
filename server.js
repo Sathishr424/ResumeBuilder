@@ -18,6 +18,9 @@ app.route('/')
     res.send("Server running on port 4000");
 });
 
+
+app.use(express.static(__dirname + "/client/build"));
+
 const userSchema = new mongoose.Schema({
     'username': String,
     'password': String,
@@ -29,16 +32,16 @@ const User = new mongoose.model('User_test', userSchema);
 
 app.route('/resume')
   .post((req,res)=>{
-    console.log("Server running..");
+    console.log("Building PDF..");
     var resume = `<html><head><style>${req.body.style}</style></head><body>${req.body.resume}</body></html>`;
     fs.writeFileSync(__dirname + '/Resumes/resume.html', resume);
     var fileData = fs.readFileSync(__dirname + '/Resumes/resume.html', 'utf8');
-    console.log(fileData);
+    // console.log(fileData);
     var options = { format: 'A4', path: __dirname + "/Resumes/resume.pdf", margin: {bottom: "20px", top: "40px", left: 0, right: 0}};
     let file = { content: fileData };
 //     console.log(resume);
     html_to_pdf.generatePdf(file, options).then(pdfBuffer => {
-        console.log("PDF Buffer:-", pdfBuffer);
+        // console.log("PDF Buffer:-", pdfBuffer);
         res.setHeader('Content-disposition', 'attachment; filename=resume.pdf');
         res.setHeader('Content-type', 'application/pdf');
         res.download(`${__dirname}/Resumes/resume.pdf`, 'resume.pdf');
